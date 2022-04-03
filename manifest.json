@@ -1,0 +1,27 @@
+{
+
+    "manifest_version": 2,
+    "name": "Netology_template_kepper",
+    "version": "1.0",
+  
+    "description": "There is saving and adding author content into textbox.",
+    "icons": {
+      "48": "images/cloud_48.png",
+      "96": "images/cloud_96.png"
+    },
+  
+    "applications": {
+      "gecko": {
+        "id": "netology_template_kepper@mozilla.org",
+        "strict_min_version": "45.0"
+      }
+    },
+  
+    "content_scripts": [
+      {
+        "matches": ["*://netology.ru/traner/task/*", "*://netology.ru/backend/admin/tasks/homeworks/*/edit"],
+        "js": ["build/build.js"]
+      }
+    ]
+  
+  }
