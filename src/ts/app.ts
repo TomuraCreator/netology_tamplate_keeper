@@ -1,5 +1,8 @@
 import CabinetFabric from "./cabinet/CabinetFabric";
+import CabinetInterface from "./interface/CabinetInterface";
 
-document.addEventListener('click', (e: Event) => {
-    console.log(CabinetFabric.makeCabinet())
+const currentCabinet: CabinetInterface = CabinetFabric.makeCabinet();
+currentCabinet.addEventsToButton('click', (event: Event)=> {
+    event.preventDefault();
+    console.log(123123)
 })

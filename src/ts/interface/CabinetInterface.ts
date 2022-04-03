@@ -1,3 +1,4 @@
 export default interface CabinetInterface {
-    buttonClick(): void;
+    init(): void;
+    addEventsToButton(events: string, handler: EventListener): void;
 }
