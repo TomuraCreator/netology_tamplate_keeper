@@ -6,9 +6,17 @@
   
     "description": "There is saving and adding author content into textbox.",
     "icons": {
-      "48": "images/cloud_48.png",
-      "96": "images/cloud_96.png"
+      "48": "build/cloud_48.png",
+      "96": "build/cloud_96.png"
     },
+    "permissions": [
+        "activeTab"
+      ],
+    "browser_action": {
+        "default_icon": "build/cloud_32.png",
+        "default_title": "Netology template kepper",
+        "default_popup": "build/index.html"
+      },
   
     "applications": {
       "gecko": {
@@ -19,7 +27,7 @@
   
     "content_scripts": [
       {
-        "matches": ["*://netology.ru/traner/task/*", "*://netology.ru/backend/admin/tasks/homeworks/*/edit"],
+        "matches": ["*://netology.ru/trainer/task/*", "*://netology.ru/backend/admin/tasks/homeworks/*/edit"],
         "js": ["build/build.js"]
       }
     ]
