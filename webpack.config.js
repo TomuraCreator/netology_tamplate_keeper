@@ -2,7 +2,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { builtinModules } = require('module');
 
 module.exports = {
   entry: "./src/index.ts",
