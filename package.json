@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
-    "preshow:coverage": "npm run coverage"
+    "tsc": "tsc src/page/*.ts"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "@types/firefox-webext-browser": "^94.0.1",
     "webpack": "^5.71.0"
   }
 }
