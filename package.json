@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "build": "webpack --mode production",
-    "tsc": "tsc src/page/*.ts"
+    "tsc": "tsc src/page/index.ts"
   },
   "repository": {
     "type": "git",

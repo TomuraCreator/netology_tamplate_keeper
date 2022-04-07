@@ -4,9 +4,12 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: "./src/extention/index.ts",
+  entry: {
+    extention: "./src/extention/index.ts",
+    page: "./src/page/index.ts"
+  },
   output: {
-    filename: "build.js",
+    filename: "[name].build.js",
     path: path.resolve(__dirname, 'build'),
   },
   module: {
@@ -55,7 +58,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/extention//index.html',
+      template: './src/extention/index.html',
       filename: './index.html',
     }),
     new MiniCssExtractPlugin({
