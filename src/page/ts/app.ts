@@ -4,7 +4,7 @@ import CabinetInterface from "./interface/CabinetInterface";
 const currentCabinet: CabinetInterface = CabinetFabric.makeCabinet();
 console.log(2)
 
-const handler = (request: any, sender: any, sendResponse: any)=> {
+const handler = (request: any, sender: any, sendResponse: any) => {
     console.log(request, sender, sendResponse)
 }
 browser.runtime.onMessage.addListener(handler);

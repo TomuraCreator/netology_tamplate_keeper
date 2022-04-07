@@ -11,20 +11,24 @@ module.exports = {
   output: {
     filename: "[name].build.js",
     path: path.resolve(__dirname, 'build'),
+    
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: {
+          loader: 'ts-loader'
+        },
         exclude: /node_modules/,
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'babel-loader'
         },
+        
       },
       {
         test: /\.html$/,
@@ -60,6 +64,9 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/extention/index.html',
       filename: './index.html',
+      excludeChunks: [
+        "page"
+      ]
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',

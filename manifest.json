@@ -17,7 +17,6 @@
         "default_title": "Netology template kepper",
         "default_popup": "build/index.html"
       },
-  
     "applications": {
       "gecko": {
         "id": "netology_template_kepper@mozilla.org",
