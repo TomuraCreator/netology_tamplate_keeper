@@ -8,7 +8,15 @@ const contextMap: RunContextMap = RunContextMap.instance;
 
 contextMap.add(Button.name, new Button())
 contextMap.add(Input.name, new Input())
-const menu_list: MenuPreshowList = new MenuPreshowList();
-const generator_menu_list: Generator<MenuPreshow> = menu_list.iterator(); 
+const menu_preshow_list: MenuPreshowList = new MenuPreshowList();
+const menu_list: MenuPreshow[] = menu_preshow_list.menuList;
 
-console.log(generator_menu_list)
+menu_list.forEach((el: MenuPreshow) => el.createListener("click", function(e) {
+    const father: HTMLElement = this.closest(".preshow");
+    this.classList.toggle("rotate");
+
+    if(father) {
+        const show: HTMLElement = father.querySelector(".menu_list_wrapper");
+        show.classList.toggle("show");
+    }
+}))

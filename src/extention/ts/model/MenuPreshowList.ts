@@ -9,11 +9,13 @@ export default class MenuPreshowList {
         this.menuPreshowList = <NodeList> document.querySelectorAll("#Flat");
     }
 
-    public *iterator(): Generator<MenuPreshow> {
+    public get menuList(): MenuPreshow[] {
         if(this.menuPreshowList.length > 0) {
-            for (let index = 0; index < this.menuPreshowList.length; index++) {
-                yield new MenuPreshow(this.menuPreshowList.item(index));
+            const newList: MenuPreshow[] = new Array<MenuPreshow>();
+            for (let index = this.menuPreshowList.length - 1; index >= 0; index--) {
+                newList.push(new MenuPreshow(this.menuPreshowList.item(index)))
             }
+            return newList;
         }
         return null;
     }
