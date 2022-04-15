@@ -1,4 +1,3 @@
-import ListenerAdaptor from "../adaptor/ListenerAdaptor";
 import Context from "../Context";
 import Initiator from "../interfaces/Initiator";
 import RunContextMap from "../RunContextMap";
@@ -15,12 +14,11 @@ export default class Button implements Initiator {
 
     public init() : void {
         const input: Input = RunContextMap.instance.get(Input.name);
-        ListenerAdaptor.add(this.button, 'click', (evt: Event) => {
-            const gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-            gettingActiveTab.then((tabs) => {
-                browser.tabs.sendMessage(tabs[0].id, {test: 1234});
-            });
-            
-        })
+        // this.button.addEventListener('click', (evt: Event) => {
+        //     const gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+        //     gettingActiveTab.then((tabs) => {
+        //         browser.tabs.sendMessage(tabs[0].id, {test: 1234});
+        //     });
+        // })
     }
 }

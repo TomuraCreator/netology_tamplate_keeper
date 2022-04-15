@@ -11,6 +11,7 @@ export default class HTMLDocument {
         if(htmlElement !== null) {
             return htmlElement;
         }
+        return null;
     }
 
     public querySelector(selector: string): Element {
@@ -19,6 +20,7 @@ export default class HTMLDocument {
         if(htmlElement !== null) {
             return htmlElement;
         }
+        return null;
     }
 
     public querySelectorAll(selector: string): NodeList {
@@ -27,6 +29,7 @@ export default class HTMLDocument {
         if(htmlElement.length !== 0) {
             return htmlElement;
         }
+        return null;
     }
 
     public get location(): Location {
