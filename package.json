@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@types/firefox-webext-browser": "^94.0.1",
+    "easymde": "^2.16.1",
     "webpack": "^5.71.0"
   }
 }

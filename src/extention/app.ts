@@ -2,20 +2,15 @@ import FilterInput from "./ts/model/FilterInput";
 import TokenContainer from "./ts/model/TokenContainer";
 import TokenList from "./ts/model/TokenList";
 import RunContextMap from "./ts/RunContextMap";
+import * as EasyMDE from 'easymde';
+import AddTokenBtn from "./ts/model/AddTokenBtn";
+import Editor from "./ts/model/Editor";
+
 const filterInput: FilterInput = new FilterInput();
 const tokenList: TokenList = new TokenList();
-// const contextMap: RunContextMap = RunContextMap.instance;
+const addTokenBtn: AddTokenBtn = new AddTokenBtn();
+
 const tokenContainer: TokenContainer = new TokenContainer();
-tokenList.add(TokenContainer.buildHTML("new", "This is not new string", Math.random()))
-tokenList.add(TokenContainer.buildHTML("token", "On the one side, i dont understand!", Math.random()))
-tokenList.add(TokenContainer.buildHTML("harasov", "On the one side, i dont understand!", Math.random()))
-tokenList.add(TokenContainer.buildHTML("token2", "On the one side, i dont understand!", Math.random()))
-tokenList.add(TokenContainer.buildHTML("token3", "On the one side, i dont understand!", Math.random()))
-tokenList.add(TokenContainer.buildHTML("token4", "On the one side, i dont understand!", Math.random()))
-tokenList.add(TokenContainer.buildHTML("token5", "On the one side, i dont understand!", Math.random()))
-tokenList.add(TokenContainer.buildHTML("token6", "On the one side, i dont understand!", Math.random()))
-tokenList.add(TokenContainer.buildHTML("token", "On the one side, i dont understand!", Math.random()))
-tokenList.add(TokenContainer.buildHTML("token", "On the one side, i dont understand!", Math.random()))
 
 filterInput.addEvent("input", function(e) {
     const target = <HTMLInputElement> e.target;
@@ -23,13 +18,75 @@ filterInput.addEvent("input", function(e) {
     tokenContainer.render(tokenList.filter(target.value))
 })
 
+addTokenBtn.addEvent("click", function(e) {
+    console.log(1)
+})
+
 tokenContainer.render(tokenList.list);
 
+// const easy: EasyMDE = new EasyMDE({
+//     autofocus: true,
+//     autosave: {
+//         enabled: true,
+//         uniqueId: "MyUniqueID",
+//         delay: 1000,
+//         submit_delay: 5000,
+//         timeFormat: {
+//             locale: 'en-US',
+//             format: {
+//                 year: 'numeric',
+//                 month: 'long',
+//                 day: '2-digit',
+//                 hour: '2-digit',
+//                 minute: '2-digit',
+//             },
+//         },
+//         text: "Autosaved: "
+//     },
+//     blockStyles: {
+//         bold: "__",
+//         italic: "_",
+//     },
+//     element: document.getElementById("text_edit"),
+//     forceSync: true,
+//     hideIcons: ["guide", "heading"],
+//     indentWithTabs: false,
+//     initialValue: "Hello world!",
+//     insertTexts: {
+//         horizontalRule: ["", "\n\n-----\n\n"],
+//         image: ["![](http://", ")"],
+//         link: ["[", "](https://)"],
+//         table: ["", "\n\n| Column 1 | Column 2 | Column 3 |\n| -------- | -------- | -------- |\n| Text     | Text      | Text     |\n\n"],
+//     },
+//     lineWrapping: false,
+//     minHeight: "500px",
+//     parsingConfig: {
+//         allowAtxHeaderWithoutSpace: true,
+//         strikethrough: false,
+//         underscoresBreakWords: true,
+//     },
+//     placeholder: "Type here...",
 
-
-
-// contextMap.add(Button.name, new Button())
-// contextMap.add(Input.name, new Input())
-// const menu_preshow_list: MenuPreshowList = new MenuPreshowList();
-// const menu_list: MenuPreshow[] = menu_preshow_list.menuList;
-
+//     previewClass: "my-custom-styling",
+//     promptURLs: true,
+//     promptTexts: {
+//         image: "Custom prompt for URL:",
+//         link: "Custom prompt for URL:",
+//     },
+//     renderingConfig: {
+//         singleLineBreaks: false,
+//         codeSyntaxHighlighting: true
+//     },
+//     shortcuts: {
+//         drawTable: "Cmd-Alt-T"
+//     },
+//     showIcons: ["code", "table"],
+//     spellChecker: false,
+//     status: false, // Optional usage
+//     styleSelectedText: false,
+//     sideBySideFullscreen: false,
+//     syncSideBySidePreviewScroll: false,
+//     tabSize: 4,
+//     toolbar: false,
+//     toolbarTips: false,
+// })

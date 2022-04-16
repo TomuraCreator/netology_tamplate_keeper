@@ -3,6 +3,7 @@ import HTMLDocument from "./HTMLDocument";
 import MenuListWrapper from "./MenuListWrapper";
 import MenuSVGButton from "./MenuSVGButton";
 import TokenList from "./TokenList";
+import TokenListPlug from "./TokenListPlug";
 import TokenParagraph from "./TokenParagraph";
 
 export default class TokenContainer {
@@ -17,11 +18,19 @@ export default class TokenContainer {
         this.containerElement.appendChild(token);
     }
 
-    public render(tokenList: HTMLElement[]) {
+    public render(tokenList: HTMLElement[]): void {
+        this.clearList();
+        if(!tokenList.length) {
+            this.appendChild(TokenListPlug.buildHTML())
+        } else {
+            tokenList.forEach((element) => {
+                this.appendChild(element);
+            })
+        }
+    }
+
+    public clearList(): void {
         this.containerElement.innerHTML = "";
-        tokenList.forEach((element) => {
-            this.appendChild(element);
-        })
     }
 
     public static buildHTML(token_key: string, token_value: string, id: number): HTMLElement {
