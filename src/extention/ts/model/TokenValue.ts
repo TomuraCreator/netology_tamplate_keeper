@@ -5,7 +5,7 @@ export default class TokenValue {
         return this.element.textContent;
     }
 
-    public setValu(nodeText: string): void {
+    public setValue(nodeText: string): void {
         this.element.textContent = nodeText.trim();
     }
 

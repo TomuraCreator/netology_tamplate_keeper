@@ -2,16 +2,18 @@ import TokenKey from "./TokenKey";
 import TokenValue from "./TokenValue";
 
 export default class TokenParagraph {
-
-    constructor() {}
-
-    public compareKey(compairingKey: string): boolean {
-        return false;
+    private value: TokenValue;
+    private key: TokenKey;
+    constructor(token_preshow: HTMLElement) {
+        this.key = new TokenKey(<HTMLElement> token_preshow.firstChild);
+        this.value = new TokenValue(<HTMLElement> token_preshow.lastChild);
     }
 
-    // public toggleVisible() {
-    //     this.token.classList.toggle("show");
-    // }
+    public compareKey(compairingKey: string): boolean {
+        console.log(compairingKey)
+        return this.key.key.includes(compairingKey);
+    }
+
 
     public static buildHTML(key: string, value: string): HTMLElement {
         const paragraph: HTMLElement = document.createElement("P");

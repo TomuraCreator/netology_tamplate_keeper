@@ -7,7 +7,6 @@ import TokenParagraph from "./TokenParagraph";
 
 export default class TokenContainer {
     private containerElement: HTMLElement;
-    private tokenList: TokenList;
     
     constructor() {
         const doc: HTMLDocument = Context.getContext.getDocument;
@@ -16,6 +15,13 @@ export default class TokenContainer {
 
     public appendChild(token: HTMLElement): void {
         this.containerElement.appendChild(token);
+    }
+
+    public render(tokenList: HTMLElement[]) {
+        this.containerElement.innerHTML = "";
+        tokenList.forEach((element) => {
+            this.appendChild(element);
+        })
     }
 
     public static buildHTML(token_key: string, token_value: string, id: number): HTMLElement {
@@ -30,8 +36,4 @@ export default class TokenContainer {
         div_token.appendChild(div_preshow);
         return div_token;
     }
-
-    // public filter(searchKey: string): TokenList {
-
-    // }
 }

@@ -1,31 +1,23 @@
-import Token from "./TokenParagraph";
+import TokenParagraph from "./TokenParagraph";
 
 export default class TokenList {
-    private tokenArray: Token[];
+    private tokenArray: HTMLElement[];
     constructor() {
-        this.tokenArray = new Array<Token>();
+        this.tokenArray = new Array<HTMLElement>();
     }
 
-    public add(token: Token): void {
+    public add(token: HTMLElement): void {
         this.tokenArray.push(token);
     }
 
-    public filter(searchKey: string): Token[] {
-        return this.tokenArray.filter(function(token) {
-
+    public get list(): HTMLElement[] {
+        return this.tokenArray;
+    }
+    
+    public filter(searchKey: string): HTMLElement[] {
+        return this.tokenArray.filter(function(tokenElem) {
+            const tokenParagraph: TokenParagraph = new TokenParagraph(tokenElem)
+            return tokenParagraph.compareKey(searchKey);            
         })
     }
-
-    // private tokenLists(): Token[] {
-    //     if(this.tokenList.length > 0) {
-    //         const newTokens: Token[] = new Array<Token>();
-    //         for (let index = this.tokenList.length - 1; index >= 0; index--) {
-    //             newTokens.push(new Token(this.tokenList.item(index)))
-    //         }
-    //         return newTokens;
-    //     }
-    //     return null;
-    // }
-
-
 }
