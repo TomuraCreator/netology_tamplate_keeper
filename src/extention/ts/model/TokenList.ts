@@ -1,4 +1,4 @@
-import Token from "./Token";
+import Token from "./TokenParagraph";
 
 export default class TokenList {
     private tokenArray: Token[];
@@ -12,7 +12,7 @@ export default class TokenList {
 
     public filter(searchKey: string): Token[] {
         return this.tokenArray.filter(function(token) {
-            
+
         })
     }
 
