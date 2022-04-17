@@ -1,7 +1,8 @@
 import Context from "../Context";
+import EventSponsor from "../interfaces/EventSponsor";
 import HTMLDocument from "./HTMLDocument";
 
-export default class FilterInput {
+export default class FilterInput implements EventSponsor {
     private txtInput: HTMLElement;
     constructor() {
         const document: HTMLDocument = Context.getContext.getDocument;

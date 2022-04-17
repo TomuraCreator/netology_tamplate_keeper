@@ -1,4 +1,5 @@
 import HTMLDocument from "./model/HTMLDocument";
+import HTMLDocumentEvents from "./model/HTMLDocumentEvents";
 import LocalStorage from "./model/LocalStorage";
 
 
@@ -24,6 +25,10 @@ export default class Context {
 
   public get getDocument(): HTMLDocument {
     return new HTMLDocument(this.getWindow.document);
+  }
+
+  public get getDocumentEvent(): HTMLDocumentEvents {
+    return new HTMLDocumentEvents(this.getWindow.document);
   }
 
   public get getLocalStorage(): LocalStorage {

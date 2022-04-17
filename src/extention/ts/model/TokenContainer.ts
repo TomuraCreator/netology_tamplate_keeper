@@ -2,7 +2,6 @@ import Context from "../Context";
 import HTMLDocument from "./HTMLDocument";
 import MenuListWrapper from "./MenuListWrapper";
 import MenuSVGButton from "./MenuSVGButton";
-import TokenList from "./TokenList";
 import TokenListPlug from "./TokenListPlug";
 import TokenParagraph from "./TokenParagraph";
 

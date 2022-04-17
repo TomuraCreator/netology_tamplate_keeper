@@ -27,6 +27,8 @@ main {
 .input_block {
     position: fixed;
     z-index: 9;
+    background-color: white;
+
 }
 
 ::-webkit-scrollbar {
@@ -125,13 +127,6 @@ main {
     font-style: italic;
 }
 
-.hide {
-    display: none;
-}
-
-.show {
-    display: block;
-}
 
 .btn-add-token {
     cursor: pointer;
@@ -141,14 +136,18 @@ main {
     display: none;
 }
 
-.EasyMDEContainer {
-    /* display: none; */
+.form_to_editor {
+    display: none;
+    padding: 5px;
     width: 400px;
-    height: 350px;
-    border: 1px solid lightblue;
     position: absolute;
     top: 10%;
     left: calc(50% - 200px);
+}
+
+.input_text_type {
+    width: 392.8px;
+    margin-bottom: 5px;
 }
 
 .token_list_plug {
@@ -162,4 +161,12 @@ main {
 }
 .plug {
     text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }
