@@ -1,5 +1,4 @@
 import * as EasyMDE from "easymde";
-import parseToHTMLElement from "../util/parseToHTMLElement";
 
 export default class AddTokenForm {
     constructor() {}
