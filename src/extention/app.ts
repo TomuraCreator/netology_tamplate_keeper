@@ -5,7 +5,6 @@ import AddTokenBtn from "./ts/model/AddTokenBtn";
 import Editor from "./ts/model/Editor";
 import Context from "./ts/Context";
 import HTMLDocumentEvents from "./ts/model/HTMLDocumentEvents";
-import TokenParagraph from "./ts/model/TokenParagraph";
 
 const htmlDocumentEvents: HTMLDocumentEvents = Context.getContext.getDocumentEvent;
 const filterInput: FilterInput = new FilterInput();
@@ -31,7 +30,7 @@ htmlDocumentEvents.on("click", function(evt) {
     if(target.classList.contains("add_new_token")) {
         const closest: HTMLElement = target.closest(".form_to_editor");
         const input: HTMLInputElement = <HTMLInputElement> closest.firstElementChild.firstElementChild;
-        tokenList.add(TokenParagraph.buildHTML(input.value, editor.easymde.value()))
+        tokenList.add(TokenContainer.buildHTML(input.value, editor.easymde.value(), Math.random()*100))
         tokenContainer.render(tokenList.list);
         editor.hide();
     }

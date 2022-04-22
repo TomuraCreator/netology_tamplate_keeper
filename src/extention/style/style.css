@@ -1,21 +1,22 @@
-body {
-    width: 17%; 
-}
 
 html {
     position: relative;
+    width: 500px;
+    height: 600px;
 }
 
 main {
-    max-height: 400px;
+    /* max-height: 400px; */
+    width: 100%;
     display: flex;
     overflow: hidden;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     flex-direction: column;
 }
 
 .token_container {
     margin-top: 40px;
+    padding-bottom: 40px;
 }
 
 .filter_wrapper {
@@ -28,11 +29,6 @@ main {
     position: fixed;
     z-index: 9;
     background-color: white;
-
-}
-
-::-webkit-scrollbar {
-    width: 0;
 }
 
 .unselectable {
@@ -47,7 +43,7 @@ main {
 .menu_list_wrapper {
     display: none;
     position: absolute;
-    top: 10px;
+    /* top: 10px; */
     right: 25px;
     z-index: 10;
     background-color: white;
