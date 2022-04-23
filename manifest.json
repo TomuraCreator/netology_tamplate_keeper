@@ -12,6 +12,7 @@
     "permissions": [
         "activeTab"
       ],
+      "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
     "browser_action": {
         "default_icon": "build/cloud_32.png",
         "default_title": "Netology template kepper",
@@ -19,14 +20,17 @@
       },
     "applications": {
       "gecko": {
-        "id": "netology_template_kepper@mozilla.org",
+        "id": "netology_template_keeper@mozilla.org",
         "strict_min_version": "45.0"
       }
     },
     "content_scripts": [
-        {
-          "matches": ["*://netology.ru/trainer/task/*", "*://netology.ru/backend/admin/tasks/homeworks/*/edit"],
-          "js": ["build/page.build.js"]
-        }
-      ]
+      {
+        "matches": ["*://netology.ru/*"],
+        "js": ["build/page.build.js"]
+      }
+    ],
+    "background": {
+      "scripts": ["build/background.build.js"]
+    }
   }
