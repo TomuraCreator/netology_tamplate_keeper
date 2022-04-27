@@ -10,7 +10,6 @@ export default class TokenParagraph {
     }
 
     public compareKey(compairingKey: string): boolean {
-        console.log(compairingKey)
         return this.key.key.includes(compairingKey);
     }
 

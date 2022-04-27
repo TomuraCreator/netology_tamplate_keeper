@@ -1,3 +1,3 @@
 export default interface Initiator {
-    init(): void
+    init(): void;
 }

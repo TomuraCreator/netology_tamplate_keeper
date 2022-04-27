@@ -1,3 +1,3 @@
 export default interface EventSponsor {
-    addEvent(event: string, handler: EventListener): void
+    addEvent(event: string, handler: EventListener): void;
 }

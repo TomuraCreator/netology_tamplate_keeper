@@ -5,8 +5,9 @@ import Teacher from "../model/Teacher";
 import TeacherBuilder from "../model/TeacherUtil";
 import HTMLDocument from "../model/HTMLDocument";
 import StudentUtil from "../model/StudentUtil";
+import Initiator from "../interface/Initiator";
 
-export default class NewCabinet implements CabinetInterface {
+export default class NewCabinet implements CabinetInterface, Initiator {
     private studentInitials: Student;
     private teacherInitials: Teacher;
     private exercise: Exercise;

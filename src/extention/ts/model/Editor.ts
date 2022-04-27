@@ -25,10 +25,10 @@ export default class Editor {
     }
 
     public show() {
-        this.form_to_editor.classList.add("show")
+        this.form_to_editor.classList.add("show");
     }
 
     public hide() {
-        this.form_to_editor.classList.remove("show")
+        this.form_to_editor.classList.remove("show");
     }
 }
