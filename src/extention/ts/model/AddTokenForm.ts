@@ -7,6 +7,7 @@ export default class AddTokenForm {
         const pareseToDoc: Document = new DOMParser().parseFromString(`<div class="form_to_editor">
         <div class="wrapper">
             <input type="text" class="input_text_type" placeholder="Write token key here..." maxlength="30">
+            <input type="checkbox" class="global_variable_checkbox" value="Global">
             <div class="wrapper_mde">
                 <textarea id="text_edit" placeholder="Hello"></textarea>
             </div>

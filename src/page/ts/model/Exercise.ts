@@ -4,5 +4,4 @@ export default class Exercise {
     get getNameOfWork(): String {
         return this.nameOfWork;
     }
-
 }

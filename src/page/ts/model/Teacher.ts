@@ -1,7 +1,9 @@
 import Person from "../abstract/Person";
 
 export default class Teacher extends Person {
-    constructor(first_name: String, last_name: String) {
+    constructor(protected first_name: string,
+        protected last_name: string,
+        protected email: string) {
         super(first_name, last_name);
     }
 }
