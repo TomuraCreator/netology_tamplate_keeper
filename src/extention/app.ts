@@ -6,10 +6,7 @@ import Editor from "./ts/model/Editor";
 import Context from "./ts/Context";
 import HTMLDocumentEvents from "./ts/model/HTMLDocumentEvents";
 import MainFrame from "./ts/model/MainFrame";
-import Request from "./ts/http/Request";
 
-
-const request: Request = new Request(); 
 const mainFrame: MainFrame = new MainFrame();
 const htmlDocumentEvents: HTMLDocumentEvents = Context.getContext.getDocumentEvent;
 const filterInput: FilterInput = new FilterInput();
@@ -46,9 +43,4 @@ htmlDocumentEvents.on("click", function(evt) {
         editor.hide();
         mainFrame.show();
     }
-})
-
-
-request.get().then( (em) => {
-    console.log(em)
 })

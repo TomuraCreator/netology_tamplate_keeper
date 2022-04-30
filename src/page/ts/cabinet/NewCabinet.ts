@@ -6,10 +6,14 @@ import TeacherBuilder from "../model/TeacherUtil";
 import HTMLDocument from "../model/HTMLDocument";
 import StudentUtil from "../model/StudentUtil";
 import Initiator from "../interface/Initiator";
+import { getter } from "@org-formation/tombok";
 
 export default class NewCabinet implements CabinetInterface, Initiator {
+    @getter
     private studentInitials: Student;
+    @getter
     private teacherInitials: Teacher;
+    @getter
     private exercise: Exercise;
     private button: HTMLElement;
 
@@ -29,6 +33,8 @@ export default class NewCabinet implements CabinetInterface, Initiator {
     public init(): void {
         console.log(this.exercise, this.studentInitials, this.teacherInitials)
     }
+
+    
 
     private getStudentFullName(document: HTMLDocument): string {
         return document.querySelector("span.components-trainer-TaskPage-components-Header-components-User--userName--1K9q-").innerHTML;

@@ -2,7 +2,7 @@ import { Scope } from "../../enums/Scope"
 
 export type Message = {
     data?: Data,
-    method: string,
+    method?: string,
     result?: boolean
 }
 
