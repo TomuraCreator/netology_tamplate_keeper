@@ -37,7 +37,6 @@
   "dependencies": {
     "@org-formation/tombok": "0.0.1",
     "@types/firefox-webext-browser": "^94.0.1",
-    "axios": "^0.26.1",
     "easymde": "^2.16.1",
     "webpack": "^5.71.0"
   }
