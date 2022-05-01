@@ -6,8 +6,9 @@ import TeacherBuilder from "../model/TeacherUtil";
 import Exercise from "../model/Exercise";
 import StudentUtil from "../model/StudentUtil";
 import Initiator from "../interface/Initiator";
+import Evention from "../interface/Evention";
 
-export default class OldCabinet implements CabinetInterface, Initiator {
+export default class OldCabinet implements CabinetInterface, Initiator, Evention {
     private studentInitials: Student;
     private teacherInitials: Teacher;
     private exercise: Exercise;
@@ -22,6 +23,31 @@ export default class OldCabinet implements CabinetInterface, Initiator {
         this.studentInitials = StudentUtil.makeStudentForOldCabinet(splitStringBreadcrumbs[0]);
         this.teacherInitials = TeacherBuilder.makeTeacher();
         this.exercise = new Exercise(splitStringBreadcrumbs[1].trim());
+    }
+
+
+    /**
+     * @override
+     * 
+     */
+    getTeacher(): Teacher {
+        return this.teacherInitials;
+    }
+
+    /**
+     * @override
+     * 
+     */
+    getStudent(): Student {
+        return this.studentInitials;
+    }
+
+    /**
+     * @override
+     * 
+     */
+    getExercise(): Exercise {
+        return this.exercise;
     }
     
     public init(): void {

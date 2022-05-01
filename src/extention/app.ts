@@ -6,6 +6,7 @@ import Editor from "./ts/model/Editor";
 import Context from "./ts/Context";
 import HTMLDocumentEvents from "./ts/model/HTMLDocumentEvents";
 import MainFrame from "./ts/model/MainFrame";
+import Teacher from "../page/ts/model/Teacher";
 
 const mainFrame: MainFrame = new MainFrame();
 const htmlDocumentEvents: HTMLDocumentEvents = Context.getContext.getDocumentEvent;
@@ -44,3 +45,9 @@ htmlDocumentEvents.on("click", function(evt) {
         mainFrame.show();
     }
 })
+
+
+browser.storage.local.get(["teacher", "task_name"]).then(result => {
+    tokenList.add(TokenContainer.buildHTML(result["teacher"], result["task_name"], 12))
+})
+

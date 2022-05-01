@@ -6,4 +6,8 @@ export default class Teacher extends Person {
         protected email: string) {
         super(first_name, last_name);
     }
+
+    get getEmail(): string {
+        return this.email;
+    }
 }

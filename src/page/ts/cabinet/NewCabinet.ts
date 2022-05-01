@@ -7,8 +7,9 @@ import HTMLDocument from "../model/HTMLDocument";
 import StudentUtil from "../model/StudentUtil";
 import Initiator from "../interface/Initiator";
 import { getter } from "@org-formation/tombok";
+import Evention from "../interface/Evention";
 
-export default class NewCabinet implements CabinetInterface, Initiator {
+export default class NewCabinet implements CabinetInterface, Initiator, Evention {
     @getter
     private studentInitials: Student;
     @getter
@@ -24,6 +25,30 @@ export default class NewCabinet implements CabinetInterface, Initiator {
         this.studentInitials = StudentUtil.makeStudentForNewCabinet(splitStudentFullName);
         this.teacherInitials = TeacherBuilder.makeTeacher();
         this.exercise = new Exercise(this.getExerciseTitle(document));
+    }
+
+    /**
+     * @override
+     * 
+     */
+    getTeacher(): Teacher {
+        return this.teacherInitials;
+    }
+
+    /**
+     * @override
+     * 
+     */
+    getStudent(): Student {
+        return this.studentInitials;
+    }
+
+    /**
+     * @override
+     * 
+     */
+    getExercise(): Exercise {
+        return this.exercise;
     }
     
     /**

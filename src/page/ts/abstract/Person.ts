@@ -1,13 +1,13 @@
-import { getter } from "@org-formation/tombok";
-
 export default abstract class Person {
-    @getter
-    protected first_name: String;
-    @getter
-    protected last_name: String;
+    protected first_name: string;
+    protected last_name: string;
 
-    constructor(first_name: String, last_name: String) {
+    constructor(first_name: string, last_name: string) {
         this.first_name = first_name;
         this.last_name = last_name;
     }
+
+    public get firstName(): string {
+        return this.first_name;
+    } 
 }

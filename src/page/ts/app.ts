@@ -5,7 +5,8 @@ import OldCabinet from "./cabinet/OldCadinet";
 import NewCabinet from "./cabinet/NewCabinet";
 import RequestBuilder from "./http/RequestBuilder";
 import { Request } from "./http/Request";
-
+import Teacher from "./model/Teacher";
+import Exercise from "./model/Exercise";
 
 (() => {
     console.log("Script loaded...");
@@ -23,16 +24,24 @@ import { Request } from "./http/Request";
                 && hrefSplit[hrefSplit.length - 2] == "task") {
                 console.log("мы в новом кабинете");
                 const newCabinet: NewCabinet = <NewCabinet> CabinetFabric.makeCabinet();
-                fetch("localhost:3000/api/experts/s").then(console.log)
-                const req: Request = new RequestBuilder().setHost("http://localhost:3000/api/expert/")
-                .setData({
-                    data: {
-                        email: "sadasd"
-                    }
-                }).build();
+                const teacher: Teacher = newCabinet.getTeacher();
+                const exercise: Exercise = newCabinet.getExercise();
 
-                req.fetch().then(console.log)
-                
+
+                localStorage.setItem("teacher", JSON.stringify(teacher));
+                localStorage.setItem("task_name", JSON.stringify(exercise));
+                // fetch("https://pokeapi.co/api/v2/pokemon/ditto")
+          
+                // const req: Request = new RequestBuilder().setHost("http://localhost:3000/api/expert/")
+                // .setData({
+                //     data: {
+                //         email: teacher.getEmail
+                //     }
+                // }).build();
+
+                // req.fetch().then( responce => {
+                //     console.log(responce.json())
+                // })
             }
         })
     }

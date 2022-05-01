@@ -5,6 +5,11 @@ html {
     height: 600px;
 }
 
+body {
+    width: 600px;
+    height: 800px;
+}
+
 main {
     /* max-height: 400px; */
     width: 100%;
