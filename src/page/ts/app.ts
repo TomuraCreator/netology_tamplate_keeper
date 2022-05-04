@@ -27,21 +27,12 @@ import Exercise from "./model/Exercise";
                 const teacher: Teacher = newCabinet.getTeacher();
                 const exercise: Exercise = newCabinet.getExercise();
 
-
-                localStorage.setItem("teacher", JSON.stringify(teacher));
-                localStorage.setItem("task_name", JSON.stringify(exercise));
-                // fetch("https://pokeapi.co/api/v2/pokemon/ditto")
-          
-                // const req: Request = new RequestBuilder().setHost("http://localhost:3000/api/expert/")
-                // .setData({
-                //     data: {
-                //         email: teacher.getEmail
-                //     }
-                // }).build();
-
-                // req.fetch().then( responce => {
-                //     console.log(responce.json())
-                // })
+                const port = browser.runtime.connect({name: "Netology_template_kepper"});
+                port.postMessage({email: teacher.getEmail});
+                port.onMessage.addListener( msg => {
+                    console.log(msg)
+                })
+                // port.disconnect();      
             }
         })
     }

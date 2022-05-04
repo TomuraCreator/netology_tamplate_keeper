@@ -6,7 +6,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry: {
     extention: "./src/extention/index.ts",
-    page: "./src/page/index.ts"
+    page: "./src/page/index.ts",
+    background: "./src/background/index.ts"
   },
   output: {
     filename: "[name].build.js",
@@ -65,7 +66,7 @@ module.exports = {
       template: './src/extention/index.html',
       filename: './index.html',
       excludeChunks: [
-        "page"
+        "page", "background"
       ]
     }),
     new MiniCssExtractPlugin({
