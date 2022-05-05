@@ -46,8 +46,23 @@ htmlDocumentEvents.on("click", function(evt) {
     }
 })
 
-
-browser.storage.local.get(["teacher", "task_name"]).then(result => {
-    tokenList.add(TokenContainer.buildHTML(result["teacher"], result["task_name"], 12))
+// browser.tabs.query({currentWindow: true, active : true}).then((tab:any) => {
+//     console.log(tab)
+//     const connectPopup: browser.runtime.Port = browser.tabs.connect(tab.id);
+//     connectPopup.onMessage.addListener((msg: any) => {
+//         msg.page.data.forEach( (element: any) => {
+//             tokenList.add(TokenContainer.buildHTML(element.token_name, element.token_value, 12))
+//         });
+//         tokenContainer.render(tokenList.list);
+//     })
+// })
+browser.runtime.onConnect.addListener((port: any) => {
+    console.log(1)
+    if(port.name === "popup_to") {
+        const msg = port.data;
+        msg.page.data.forEach( (element: any) => {
+            tokenList.add(TokenContainer.buildHTML(element.token_name, element.token_value, 12))
+        });
+        tokenContainer.render(tokenList.list);
+    }
 })
-

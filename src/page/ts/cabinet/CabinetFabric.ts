@@ -7,7 +7,7 @@ import OldCabinet from "./OldCadinet";
 
 export default class CabinetFabric {
     public static makeCabinet(): CabinetInterface {
-        let document: HTMLDocument = Context.getContext.getDocument;
+        let document: HTMLDocument = new Context().getDocument;
         return UserAgent.isThatNewCabinet() ? new NewCabinet(document) : new OldCabinet(document);
     }
 }

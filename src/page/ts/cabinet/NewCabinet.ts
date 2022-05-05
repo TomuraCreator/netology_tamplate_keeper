@@ -6,15 +6,11 @@ import TeacherBuilder from "../model/TeacherUtil";
 import HTMLDocument from "../model/HTMLDocument";
 import StudentUtil from "../model/StudentUtil";
 import Initiator from "../interface/Initiator";
-import { getter } from "@org-formation/tombok";
 import Evention from "../interface/Evention";
 
 export default class NewCabinet implements CabinetInterface, Initiator, Evention {
-    @getter
     private studentInitials: Student;
-    @getter
     private teacherInitials: Teacher;
-    @getter
     private exercise: Exercise;
     private button: HTMLElement;
 
