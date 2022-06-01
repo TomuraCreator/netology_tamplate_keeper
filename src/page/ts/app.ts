@@ -7,6 +7,8 @@ import Exercise from "./model/Exercise";
 // import { Message } from "./protocol/model/Message";
 import Student from "./model/Student";
 import Context from "./Context";
+import { waitingContent } from "./utills";
+
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Script loaded...");
@@ -20,25 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         if(hrefSplit[hrefSplit.length - 2] == "task") {
             console.log("мы в новом кабинете 1");
-            let selector: string = "span.features-trainer-trainerTask-components-Task-components-Header-components-User--userName--1WNyG"
-            let wainitFlag: boolean = false;
-
-            const interval = setInterval(() => {
-                if(document.querySelector(selector)) {
-                    wainitFlag = !wainitFlag
-                }
-                if(wainitFlag) {
-                    clearInterval(interval);
-                    console.log(2, document.querySelector(selector))
+            waitingContent().then(isExist => {
+                if(isExist) {
                     try {
                         const newCabinet: NewCabinet = <NewCabinet> CabinetFabric.makeCabinet();
                         newCabinet.init()
                     } catch (e) {
                         console.log(e)
                     }
-                    
                 }
-            }, 500);
+            });
         }
 
         // window.addEventListener("click", event => {

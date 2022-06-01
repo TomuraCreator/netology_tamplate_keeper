@@ -7,7 +7,8 @@ import HTMLDocument from "../model/HTMLDocument";
 import StudentUtil from "../model/StudentUtil";
 import Initiator from "../interface/Initiator";
 import Evention from "../interface/Evention";
-import { Node } from "webpack";
+import { findElementBySubstringSelector } from "../utills";
+
 
 export default class NewCabinet implements CabinetInterface, Initiator, Evention {
     private studentInitials: Student;
@@ -16,12 +17,12 @@ export default class NewCabinet implements CabinetInterface, Initiator, Evention
     private button: HTMLElement;
 
     constructor(document: HTMLDocument) {
-        let studentFullName: string = this.getStudentFullName(document);
+        let studentFullName: string = this.getStudentFullName();
         let splitStudentFullName: Array<string> = studentFullName.split(" ");
         this.button = this.getButtonElement(document);
         this.studentInitials = StudentUtil.makeStudentForNewCabinet(splitStudentFullName);
         this.teacherInitials = TeacherBuilder.makeTeacher();
-        this.exercise = new Exercise(this.getExerciseTitle(document));
+        this.exercise = new Exercise(this.getExerciseTitle());
     }
 
     /**
@@ -58,11 +59,11 @@ export default class NewCabinet implements CabinetInterface, Initiator, Evention
 
     
 
-    private getStudentFullName(document: HTMLDocument): string {
-        const span: Array<Node> = Array.from(document.querySelectorAll("span"));
-        span.find(element => element.classList.contains())
+    private getStudentFullName(): string {
+        const selector: string = "features-trainer-trainerTask-components-Task-components-Header-components-User--userName";
+        const element:HTMLElement = findElementBySubstringSelector(selector, "span");
         
-        return document.querySelector("span.features-trainer-trainerTask-components-Task-components-Header-components-User--userName--1WNyG").innerHTML;
+        return element.innerHTML;
     }
 
     private getButtonElement(document: HTMLDocument): HTMLElement {
@@ -70,21 +71,13 @@ export default class NewCabinet implements CabinetInterface, Initiator, Evention
         return element;
     }
 
-    private getExerciseTitle(document: HTMLDocument): string {
+    private getExerciseTitle(): string {
         const selector: string = "features-trainer-trainerTask-components-Task-components-Title--titleLink";
-        const element:HTMLElement = this.findElementBySubstringSelector(selector, "a");
+        const element:HTMLElement = findElementBySubstringSelector(selector, "a");
         return element.innerHTML;
     }
 
     public addEventsToButton(events: string, handler: EventListener): void {
         this.button.addEventListener(events, handler);
-    }
-
-    private findElementBySubstringSelector(subselector: string, elementTagStr: string): HTMLElement {
-        const elements: NodeList = document.querySelectorAll(elementTagStr);
-        const element: HTMLElement = <HTMLElement> Array.from(elements).find((element: HTMLElement) => {
-            return Array.from(element.classList).find((el: string) => el.includes(subselector))
-        })
-        return element;
     }
 }
