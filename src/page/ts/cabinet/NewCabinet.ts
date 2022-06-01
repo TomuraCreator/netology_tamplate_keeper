@@ -7,6 +7,7 @@ import HTMLDocument from "../model/HTMLDocument";
 import StudentUtil from "../model/StudentUtil";
 import Initiator from "../interface/Initiator";
 import Evention from "../interface/Evention";
+import { Node } from "webpack";
 
 export default class NewCabinet implements CabinetInterface, Initiator, Evention {
     private studentInitials: Student;
@@ -58,7 +59,10 @@ export default class NewCabinet implements CabinetInterface, Initiator, Evention
     
 
     private getStudentFullName(document: HTMLDocument): string {
-        return document.querySelector("span.components-trainer-TaskPage-components-Header-components-User--userName--1K9q-").innerHTML;
+        const span: Array<Node> = Array.from(document.querySelectorAll("span"));
+        span.find(element => element.classList.contains())
+        
+        return document.querySelector("span.features-trainer-trainerTask-components-Task-components-Header-components-User--userName--1WNyG").innerHTML;
     }
 
     private getButtonElement(document: HTMLDocument): HTMLElement {
@@ -67,10 +71,20 @@ export default class NewCabinet implements CabinetInterface, Initiator, Evention
     }
 
     private getExerciseTitle(document: HTMLDocument): string {
-        return document.querySelector("a.components-trainer-TaskPage-components-Title--titleLink---0uEG").innerHTML;
+        const selector: string = "features-trainer-trainerTask-components-Task-components-Title--titleLink";
+        const element:HTMLElement = this.findElementBySubstringSelector(selector, "a");
+        return element.innerHTML;
     }
 
     public addEventsToButton(events: string, handler: EventListener): void {
         this.button.addEventListener(events, handler);
+    }
+
+    private findElementBySubstringSelector(subselector: string, elementTagStr: string): HTMLElement {
+        const elements: NodeList = document.querySelectorAll(elementTagStr);
+        const element: HTMLElement = <HTMLElement> Array.from(elements).find((element: HTMLElement) => {
+            return Array.from(element.classList).find((el: string) => el.includes(subselector))
+        })
+        return element;
     }
 }

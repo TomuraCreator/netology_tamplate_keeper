@@ -26,6 +26,7 @@
     },
     "content_scripts": [
       {
+        "run_at": "document_start",
         "matches": ["*://netology.ru/*"],
         "js": ["build/page.build.js"]
       }
