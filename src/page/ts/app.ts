@@ -8,6 +8,7 @@ import Exercise from "./model/Exercise";
 import Student from "./model/Student";
 import Context from "./Context";
 import { waitingContent } from "./utills";
+import CabinetInterface from "./interface/CabinetInterface";
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,16 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const hrefSplit: string[] = href.split('/');
     if(hrefSplit[hrefSplit.length - 1] === "edit#end_form") {
         console.log("Мы в старом кабинете")
-        // const oldCabinet: OldCabinet = <OldCabinet> CabinetFabric.makeCabinet();
-        console.dir(document.querySelector(".features-trainer-trainerTask-components-Task-components-Header-components-User--userName--1WNyG"))
     } else {
         if(hrefSplit[hrefSplit.length - 2] == "task") {
             console.log("мы в новом кабинете 1");
             waitingContent().then(isExist => {
                 if(isExist) {
                     try {
-                        const newCabinet: NewCabinet = <NewCabinet> CabinetFabric.makeCabinet();
-                        newCabinet.init()
+                        const newCabinet: CabinetInterface = CabinetFabric.makeCabinet();
+                        console.log(newCabinet.getExercise(), newCabinet.getStudent(), newCabinet.getTeacher())
                     } catch (e) {
                         console.log(e)
                     }

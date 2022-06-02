@@ -8,9 +8,10 @@ import StudentUtil from "../model/StudentUtil";
 import Initiator from "../interface/Initiator";
 import Evention from "../interface/Evention";
 import { findElementBySubstringSelector } from "../utills";
+import { ElementAwaiter } from "../interface/ElementAwaiter";
 
 
-export default class NewCabinet implements CabinetInterface, Initiator, Evention {
+export default class NewCabinet implements CabinetInterface, Initiator, Evention, ElementAwaiter {
     private studentInitials: Student;
     private teacherInitials: Teacher;
     private exercise: Exercise;
@@ -23,6 +24,15 @@ export default class NewCabinet implements CabinetInterface, Initiator, Evention
         this.studentInitials = StudentUtil.makeStudentForNewCabinet(splitStudentFullName);
         this.teacherInitials = TeacherBuilder.makeTeacher();
         this.exercise = new Exercise(this.getExerciseTitle());
+    }
+
+    /**
+     * @override
+     * @param selector 
+     * @param element 
+     */
+    waitFor(selector: string, element?: string): Promise<boolean> {
+        throw new Error("Method not implemented.");
     }
 
     /**

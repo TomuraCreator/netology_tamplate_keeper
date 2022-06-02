@@ -32,4 +32,8 @@ export default class HTMLDocument {
     public get location(): Location {
         return this.document.location;
     }
+
+    public addDOMContentLoadedListener(callback: EventListener): void {
+        this.document.addEventListener("DOMContentLoaded", callback);
+    }
 }
